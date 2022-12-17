@@ -10,18 +10,21 @@ public class PlayerMovementKeyboard : MonoBehaviour
 
     public KeyCode Shift;
 
-    [Header("Speed")]
+    [Header("Movement Settings")]
     public float speed;
+    public AnimationCurve movementCurve;
 
     public void FixedUpdate()
     {
-        Vector3 dir = new Vector3(0, 0, 0);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        if (Input.GetKey(W)) dir.y += 1;
-        if (Input.GetKey(A)) dir.x += -1;
-        if (Input.GetKey(S)) dir.y += -1;
-        if (Input.GetKey(D)) dir.x += 1;
+        // Calculate the movement direction and magnitude based on the input and the curve
+        Vector3 movement = new Vector3(horizontal, vertical, 0f);
+        float magnitude = movement.magnitude;
+        movement = movement.normalized * movementCurve.Evaluate(magnitude) * speed;
 
-        transform.position += dir.normalized * speed * Time.deltaTime;
+        // Move the player in the direction specified by the input
+        transform.position = transform.position + movement * Time.deltaTime;
     }
 }
