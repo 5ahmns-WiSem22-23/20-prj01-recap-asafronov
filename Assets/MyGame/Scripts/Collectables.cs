@@ -1,21 +1,30 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Collectables : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private Transform player;
+    private Gamelogic gamelogic;
+
+    public float pickUpableDistance;
+    public UnityEvent whenOnPickUp;
+
+    private void Awake()
     {
-        if (collision.CompareTag("Player"))
-        {
-            Collecting(GameObject.FindWithTag("Player"));
-        }
+        gamelogic = FindObjectOfType<Gamelogic>();
+        player = FindObjectOfType<PlayerMovementKeyboard>().transform;
     }
 
-    public void Collecting(GameObject player)
+    public void Update()
     {
-        if (player.transform.childCount == 0)
+        float distance = Vector2.Distance(player.transform.position, transform.position);
+
+        if (distance <= pickUpableDistance)
         {
-            transform.SetParent(player.transform);
-            GetComponent<Collider2D>().enabled = false;
+            whenOnPickUp.Invoke();
+            Destroy(this.gameObject);
+            //needs refinement. How to make events for Prefabs?
+            gamelogic.canCollect = false;
         }
     }
 }
