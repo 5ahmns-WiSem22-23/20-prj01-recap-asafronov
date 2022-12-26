@@ -8,9 +8,11 @@ public class Pointer : MonoBehaviour
 
     private void Update()
     {
+        collectable = FindObjectOfType<Collectables>();
+
         Transform pickup = collectable.transform;
 
-        Image img = GetComponentInChildren<Image>();
+        var img = GetComponentInChildren<Image>();
         img.enabled = Vector3.Distance(transform.position, pickup.position) > distance;
 
         Vector3 dir = pickup.position - transform.position;

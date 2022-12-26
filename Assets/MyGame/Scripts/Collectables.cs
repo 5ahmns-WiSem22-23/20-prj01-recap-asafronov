@@ -3,8 +3,9 @@ using UnityEngine.Events;
 
 public class Collectables : MonoBehaviour
 {
-    private Transform player;
+    private Transform playerTransform;
     private Gamelogic gamelogic;
+    private PlayerMovementKeyboard player;
 
     public float pickUpableDistance;
     public UnityEvent whenOnPickUp;
@@ -12,12 +13,13 @@ public class Collectables : MonoBehaviour
     private void Awake()
     {
         gamelogic = FindObjectOfType<Gamelogic>();
-        player = FindObjectOfType<PlayerMovementKeyboard>().transform;
+        playerTransform = FindObjectOfType<PlayerMovementKeyboard>().transform;
+        player = FindObjectOfType<PlayerMovementKeyboard>();
     }
 
     public void Update()
     {
-        float distance = Vector2.Distance(player.transform.position, transform.position);
+        float distance = Vector2.Distance(playerTransform.transform.position, transform.position);
 
         if (distance <= pickUpableDistance)
         {
@@ -25,6 +27,8 @@ public class Collectables : MonoBehaviour
             Destroy(this.gameObject);
             //needs refinement. How to make events for Prefabs?
             gamelogic.canCollect = false;
+
+            player.animator.SetBool("Collected", true);
         }
     }
 }

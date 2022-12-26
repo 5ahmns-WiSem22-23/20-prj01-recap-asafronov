@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b6df546bf912aa24893a7bd2746216c0
+guid: 84147aa8d8dfdf64f8c0cd3b118cf2a5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,11 +47,11 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grinch_walking_0
+      name: Haus1_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 145
-        width: 35
-        height: 30
+        x: 0
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6c21da9755e12c419e8e5df8298b424
-      internalID: -764705891
+      spriteID: ed4aeb09c0ce3fa4ba778bb1a734cbf4
+      internalID: 845897903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grinch_walking_1
+      name: Haus1_1
       rect:
         serializedVersion: 2
-        x: 76
-        y: 145
-        width: 37
-        height: 30
+        x: 64
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6446ed18a2d9f1748921680b526f51b4
-      internalID: 123775865
+      spriteID: fbdeb9b2851440240954c1dc19dc8625
+      internalID: 22796642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grinch_walking_2
+      name: Haus1_2
       rect:
         serializedVersion: 2
-        x: 12
-        y: 81
-        width: 36
-        height: 30
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03492783d85221641afcca26a18c34c9
-      internalID: 205099138
+      spriteID: b46502118869bb64da1e3d349556f335
+      internalID: 17296871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grinch_walking_3
+      name: Haus1_3
       rect:
         serializedVersion: 2
-        x: 76
-        y: 81
-        width: 35
-        height: 30
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9024e3985d3d3054da977d1c446e44a6
-      internalID: -584468883
+      spriteID: a8113edd3ddee654e930b8004c0795f5
+      internalID: 824324323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grinch_walking_4
+      name: Haus1_4
       rect:
         serializedVersion: 2
-        x: 12
-        y: 17
-        width: 37
-        height: 30
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f789c719a205a9440a362731add93ad0
-      internalID: -1774698053
+      spriteID: 02af3a6c9278a72428452dddb16c8479
+      internalID: -1427976944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grinch_walking_5
+      name: Haus1_5
       rect:
         serializedVersion: 2
-        x: 76
-        y: 17
-        width: 35
-        height: 30
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,8 +224,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c36b40cefcb5e154eb79dfffbe38634a
-      internalID: 1029797486
+      spriteID: f425652022ff18542a6d0a6a8ea4e88b
+      internalID: 1939851179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haus1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5218aac8885cbcb41b3b8f63cbd78082
+      internalID: 1598870824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haus1_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fa872c9566c7c543a697ad421434db1
+      internalID: -1868441518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haus1_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a44513476f1c24c946f3ed4f210800
+      internalID: -794395839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Haus1_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 123e2e5ea4753d5459ede528648a0875
+      internalID: 83356944
       vertices: []
       indices: 
       edges: []
@@ -233,7 +317,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c3541ddb4d6636543acfb00df9103cd7
+    spriteID: 2f8e40c7d6a03504c8831e85281f7b12
     internalID: 0
     vertices: []
     indices: 
@@ -241,12 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Grinch_walking_0: -764705891
-      Grinch_walking_4: -1774698053
-      Grinch_walking_1: 123775865
-      Grinch_walking_3: -584468883
-      Grinch_walking_5: 1029797486
-      Grinch_walking_2: 205099138
+      Haus1_1: 22796642
+      Haus1_2: 17296871
+      Haus1_7: -1868441518
+      Haus1_0: 845897903
+      Haus1_3: 824324323
+      Haus1_4: -1427976944
+      Haus1_8: -794395839
+      Haus1_9: 83356944
+      Haus1_5: 1939851179
+      Haus1_6: 1598870824
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
