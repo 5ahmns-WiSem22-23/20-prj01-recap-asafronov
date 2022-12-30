@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class PlayerMovementKeyboard : MonoBehaviour
 {
@@ -8,8 +7,6 @@ public class PlayerMovementKeyboard : MonoBehaviour
     public KeyCode A;
     public KeyCode S;
     public KeyCode D;
-
-    public KeyCode Shift;
 
     [Header("Movement Settings")]
     public float speed;
@@ -38,13 +35,8 @@ public class PlayerMovementKeyboard : MonoBehaviour
     
     public void FixedUpdate()
     {
-        //rb.velocity = rb.velocity.normalized;
+        movement = movement.normalized;
         rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
-    }
-
-    public void LateUpdate()
-    {
-        Debug.Log("Velocity of Rigidbody: " + rb.velocity.magnitude);
     }
 
     public void RemoveCollectableFromAnimation()

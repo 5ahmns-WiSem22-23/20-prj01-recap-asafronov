@@ -24,7 +24,7 @@ public class Collectables : MonoBehaviour
         if (distance <= pickUpableDistance)
         {
             whenOnPickUp.Invoke();
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             //needs refinement. How to make events for Prefabs?
             gamelogic.canCollect = false;
 

@@ -11,6 +11,8 @@ public class EnemyScript : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.updateRotation = false;
         navAgent.updateUpAxis = false;
+
+        player = FindObjectOfType<PlayerMovementKeyboard>().transform;
     }
 
     private void Update()
