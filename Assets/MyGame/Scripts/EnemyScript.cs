@@ -12,11 +12,18 @@ public class EnemyScript : MonoBehaviour
         navAgent.updateRotation = false;
         navAgent.updateUpAxis = false;
 
-        player = FindObjectOfType<PlayerMovementKeyboard>().transform;
+        player = FindObjectOfType<PlayerMovement>().transform;
+
+        SpriteRenderer renderer;
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
         navAgent.SetDestination(player.position);
+
+        Vector3 direction = player.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }

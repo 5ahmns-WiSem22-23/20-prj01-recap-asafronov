@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 1f79f065411fcf649bfe42a9acd0cc92
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Petrona
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 00ff1dbe536017f47ad33f8fa54d1ecb, type: 3}
+  - {fileID: 12800000, guid: 3bde3e477127e0847aa157d0851b0b58, type: 3}
+  - {fileID: 12800000, guid: 3c13288e4e719e841a4d19c951a7d2b4, type: 3}
+  - {fileID: 12800000, guid: a3c55bfde28c0924d8f906c1d1c5fa67, type: 3}
+  - {fileID: 12800000, guid: 5cf0ad5c85494934e803dd643a0b8a4e, type: 3}
+  - {fileID: 12800000, guid: 6d799ecc5c0c08c4abb443875f7bb758, type: 3}
+  - {fileID: 12800000, guid: 46f9a4c2dbead0d4eb2d928c486ae03e, type: 3}
+  - {fileID: 12800000, guid: 33ebdf1270e3fb74da454a8303e00b55, type: 3}
+  - {fileID: 12800000, guid: 27cfca42c5a557442909e2e226c47115, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

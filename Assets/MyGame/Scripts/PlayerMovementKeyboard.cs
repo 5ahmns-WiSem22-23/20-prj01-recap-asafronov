@@ -9,7 +9,9 @@ public class PlayerMovementKeyboard : MonoBehaviour
     public KeyCode D;
 
     [Header("Movement Settings")]
-    public float speed;
+    public AnimationCurve speedCurve;
+    public float speedControll;
+    private float speed;
     private Rigidbody2D rb;
     private Vector2 movement;
 
@@ -25,8 +27,26 @@ public class PlayerMovementKeyboard : MonoBehaviour
 
     public void Update()
     {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+        if (Input.GetKey(W)){
+            movement = Vector2.up;
+        }
+
+        if (Input.GetKey(A))
+        {
+            movement = Vector2.left;
+        }
+
+        if (Input.GetKey(S))
+        {
+            movement = Vector2.down;
+        }
+
+        if (Input.GetKey(D))
+        {
+            movement = Vector2.right;
+        }
+
+        speed = speedCurve.Evaluate(Time.time);
 
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
@@ -36,7 +56,7 @@ public class PlayerMovementKeyboard : MonoBehaviour
     public void FixedUpdate()
     {
         movement = movement.normalized;
-        rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+        rb.MovePosition(rb.position + movement * speed *Time.deltaTime);
     }
 
     public void RemoveCollectableFromAnimation()
