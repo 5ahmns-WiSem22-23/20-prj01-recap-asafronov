@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5077144123374875452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5077144123374875454}
+  - component: {fileID: 5077144123374875453}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5077144123374875454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5077144123374875452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5077144123374875453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5077144123374875452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db2410f35bb9c346a89ba72ff980a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectedNumbers: {fileID: 0}
+  timeText: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  collected: 0
+  spawnRange: {x: 11.5, y: 11.5}
+  minDistance: 1
+  collectable: {fileID: 6689291279574488292, guid: a4e1774899aea774ca6baa50e0f10b80, type: 3}
+  powerUps:
+  - {fileID: 6186038262630141807, guid: 23f9057dc2dd53a42958d1bcb04914f4, type: 3}
+  - {fileID: 9218398125960479432, guid: 3fb0b736226d6ca47b8aef6a615a328b, type: 3}
+  - {fileID: 9143660231266384698, guid: cccbf2ab1c7fec447b19e597c2eda373, type: 3}
+  objectsToAvoid:
+  - {fileID: 0}
+  - {fileID: 0}
+  controllTime: 2
+  enemySpawnPoint: SpawnPoints
+  enemies:
+  - {fileID: 8627046604602380057, guid: 0ed6c44eba381f740a1440b394ef0c42, type: 3}
+  - {fileID: 8627046604602380057, guid: 229a4b337ee7d384b9099f7f6c536b57, type: 3}
+  - {fileID: 8627046604602380057, guid: 76875489e577fb24fa40ac5e27a32407, type: 3}
+  enemySpawnPoints: []

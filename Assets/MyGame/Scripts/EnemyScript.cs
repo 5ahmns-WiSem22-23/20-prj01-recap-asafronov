@@ -4,6 +4,8 @@ using UnityEngine.AI;
 public class EnemyScript : MonoBehaviour
 {
     private NavMeshAgent navAgent;
+    private PlayerMovementRotation playerScript;
+
     public Transform player;
 
     private void Start()
@@ -12,7 +14,8 @@ public class EnemyScript : MonoBehaviour
         navAgent.updateRotation = false;
         navAgent.updateUpAxis = false;
 
-        player = FindObjectOfType<PlayerMovement>().transform;
+        player = FindObjectOfType<PlayerMovementRotation>().transform;
+        playerScript = FindObjectOfType<PlayerMovementRotation>();
 
         SpriteRenderer renderer;
         renderer = GetComponent<SpriteRenderer>();
@@ -25,5 +28,13 @@ public class EnemyScript : MonoBehaviour
         Vector3 direction = player.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            playerScript.health--;
+        }
     }
 }

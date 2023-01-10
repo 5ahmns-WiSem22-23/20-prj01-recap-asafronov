@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class Collectable
 {
@@ -11,13 +11,28 @@ public class Collectable
 
 public class Gamelogic : MonoBehaviour
 {
-    [Header("Settings for collectables")]
-    public int collected;
+    [Header("UI")]
+    public TMP_Text collectedNumbers;
+    public TMP_Text timeText;
+    public GameObject pauseMenu;
+
+    private bool timeStopped = false;
+    private PlayerMovementRotation player;
 
     [Space]
 
-    [Header("UI")]
-    public TMP_Text collectedNumbers;
+    [Header("Settings for collectables")]
+    public int collected;
+    public Vector2 spawnRange;
+    public float minDistance;
+    public GameObject collectable;
+    public GameObject[] powerUps = new GameObject[3];
+    [Space]
+    public List<GameObject> objectsToAvoid;
+
+    private float elapsedTime;
+    private float time;
+    public float controllTime;
 
     [Space]
 
@@ -31,18 +46,13 @@ public class Gamelogic : MonoBehaviour
     private GameObject[] spawnPointObjects;
     private bool checker = false;
 
-    [Space]
-
-    [Header("Settings for collectables")]
-    public Vector2 spawnRange;
-    public float minDistance;
-    public GameObject collectable;
-    public GameObject[] powerUps = new GameObject[3];
-    [Space]
-    public List<GameObject> objectsToAvoid;
 
     private void Start()
     {
+        Time.timeScale = 0f;
+
+        player = FindObjectOfType<PlayerMovementRotation>();
+
         SpawnNewCollectable(collectable);
 
         spawnPointObjects = GameObject.FindGameObjectsWithTag(enemySpawnPoint);
@@ -56,6 +66,15 @@ public class Gamelogic : MonoBehaviour
 
     private void Update()
     {
+        time = Time.time;
+        int minutes = (int)(time / 60f);
+        int seconds = (int)(time % 60);
+        int milliseconds = (int)(time * 1000) % 1000;
+
+        timeText.text = $"{minutes:00}:{seconds:00}:{milliseconds:000}";
+
+        elapsedTime += Time.deltaTime;
+
         if (collected % 2 == 0 && !checker)
         {
             int randomIndex = Random.Range(0, enemies.Length);
@@ -67,6 +86,22 @@ public class Gamelogic : MonoBehaviour
         if (collected % 2 == 1) checker = false;
 
         collectedNumbers.text = collected.ToString();
+
+        if(elapsedTime >= controllTime)
+        {
+            var randomIndex = Random.Range(0, 3);
+            SpawnNewCollectable(powerUps[randomIndex]);
+            elapsedTime -= controllTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            timeStopped = !timeStopped;
+            Time.timeScale = timeStopped ? 0f : 1f;
+            player.GetComponent<Rigidbody2D>().bodyType = timeStopped ? RigidbodyType2D.Static : RigidbodyType2D.Dynamic;
+
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+        }
     }
 
     //for the Unityevent to invoke this Method.
@@ -109,20 +144,35 @@ public class Gamelogic : MonoBehaviour
                 }
             }
 
-            if (!intersects) break;
-
+            if (!intersects)
+            {
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.5f); // 0.5f is the radius of the overlap circle
+                if (colliders.Length == 0)
+                {
+                    break;
+                }
+            }
             position = new Vector2(Random.Range(-spawnRange.x / 2, spawnRange.x / 2), Random.Range(-spawnRange.y / 2, spawnRange.y / 2));
         }
 
         Instantiate(pickUp, position, Quaternion.identity);
     }
 
-    public void SpawnNewPowerUp(GameObject powerUp1)
+    public void QuitGame()
     {
-        //if (elapsedTime >= timeInterval)
-        //{ //instantiate the prefab and reset the elapsed time
-         //   Instantiate(powerUp1, transform.position, Quaternion.identity);
-         //   elapsedTime = elapsedTime - timeInterval;
-        //}
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
+    }
+
+    public void LoadGame(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void TimeScale()
+    {
+        Time.timeScale = 1f;
     }
 }

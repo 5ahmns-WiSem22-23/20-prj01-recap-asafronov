@@ -3,14 +3,14 @@ using UnityEngine.Events;
 
 public class Collectables : MonoBehaviour
 {
-    private PlayerMovement player2;
+    private PlayerMovementRotation player2;
 
     public float pickUpableDistance;
     public UnityEvent whenOnPickUp;
 
     private void Awake()
     {
-        player2 = FindObjectOfType<PlayerMovement>();
+        player2 = FindObjectOfType<PlayerMovementRotation>();
     }
 
     public void Update()
