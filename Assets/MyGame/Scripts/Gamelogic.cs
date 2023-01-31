@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor;
-using UnityEngine.SceneManagement;
 
 public class Collectable
 {
@@ -47,6 +45,11 @@ public class Gamelogic : MonoBehaviour
     private bool checker = false;
 
 
+    private void Awake()
+    {
+        time = 0f;
+    }
+
     private void Start()
     {
         Time.timeScale = 0f;
@@ -66,7 +69,7 @@ public class Gamelogic : MonoBehaviour
 
     private void Update()
     {
-        time = Time.time;
+        time = Time.timeSinceLevelLoad;
         int minutes = (int)(time / 60f);
         int seconds = (int)(time % 60);
         int milliseconds = (int)(time * 1000) % 1000;
@@ -90,12 +93,13 @@ public class Gamelogic : MonoBehaviour
         if(elapsedTime >= controllTime)
         {
             var randomIndex = Random.Range(0, 3);
-            SpawnNewCollectable(powerUps[randomIndex]);
+            //SpawnNewCollectable(powerUps[randomIndex]);
             elapsedTime -= controllTime;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("Lol?");
             timeStopped = !timeStopped;
             Time.timeScale = timeStopped ? 0f : 1f;
             player.GetComponent<Rigidbody2D>().bodyType = timeStopped ? RigidbodyType2D.Static : RigidbodyType2D.Dynamic;
@@ -158,18 +162,7 @@ public class Gamelogic : MonoBehaviour
         Instantiate(pickUp, position, Quaternion.identity);
     }
 
-    public void QuitGame()
-    {
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#endif
-        Application.Quit();
-    }
 
-    public void LoadGame(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
 
     public void TimeScale()
     {
