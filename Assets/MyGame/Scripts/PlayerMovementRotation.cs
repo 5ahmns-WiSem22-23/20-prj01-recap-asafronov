@@ -71,10 +71,9 @@ public class PlayerMovementRotation : MonoBehaviour
             animator.Play(death);
             rb.bodyType = RigidbodyType2D.Static;
 
-            //var screen = Random.Range(0, 10);
-            //if (screen >= 2) gameOverScreen[1].SetActive(true);
-            //else gameOverScreen[0].SetActive(true);
-            gameOverScreen[0].SetActive(true);
+            var screen = Random.Range(0, 10);
+            if (screen >= 2) gameOverScreen[1].SetActive(true);
+            else gameOverScreen[0].SetActive(true);
 
             StartCoroutine(WaitUntilPause());
         }
